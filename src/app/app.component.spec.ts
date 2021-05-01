@@ -1,16 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { AppModule } from './app.module';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+        AppModule
+      ]
     }).compileComponents();
   });
 
@@ -23,13 +21,13 @@ describe('AppComponent', () => {
   it(`should have as title 'bcb-cc-fe'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('bcb-cc-fe');
+    expect(app.title).toEqual('Current Trading');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('bcb-cc-fe app is running!');
+    expect(compiled.querySelector('.header h1').textContent).toContain('Current Trading');
   });
 });
